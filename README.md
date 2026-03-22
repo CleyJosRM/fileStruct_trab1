@@ -1,7 +1,7 @@
 # trabalho1arquivos
 Trabalho 1 da disciplina de Organização de Arquivos, que consiste em implementar um pequeno sistema de banco de dados que manuseia arquivos que especificam a malha metroviária da Grande São Paulo.
 
-Nosso arquivo main.c receberá argumentos na linha de comando. O primeiro será o código da funcionalidade, e os argumentos seguintes dependem da funcionalidade:
+Nosso arquivo main.c deverá ler uma linha do usuário, que especifica a funcionalidade e os argumentos, e então executá-la. Eis a sintaxe dos comandos e o que eles fazem:
 
 1 arquivoEntrada.csv arquivoSaida.bin 
 
