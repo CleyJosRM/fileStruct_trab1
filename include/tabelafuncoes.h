@@ -1,3 +1,6 @@
+// Cleyton José Rodrigues Macedo 16821725
+// Guilherme Cavalcanti de Santana 15456556
+
 #ifndef TABELA_FUNCOES_H
 	#define TABELA_FUNCOES_H
 

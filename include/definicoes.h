@@ -1,3 +1,6 @@
+// Cleyton José Rodrigues Macedo 16821725
+// Guilherme Cavalcanti de Santana 15456556
+
 /*
 Inclusão de bibliotecas, definição de constantes, structs
 e funções auxiliares que podem ser usadas por todo o código.

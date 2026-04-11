@@ -1,3 +1,6 @@
+// Cleyton José Rodrigues Macedo 16821725
+// Guilherme Cavalcanti de Santana 15456556
+
 #include<stdio.h>
 #include<string.h>	
 #include<stdlib.h>

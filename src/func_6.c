@@ -1,3 +1,6 @@
+// Cleyton José Rodrigues Macedo 16821725
+// Guilherme Cavalcanti de Santana 15456556
+
 #include "../include/definicoes.h"
 #include "../include/datamanager.h"
 

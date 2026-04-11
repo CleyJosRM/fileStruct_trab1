@@ -1,3 +1,6 @@
+// Cleyton José Rodrigues Macedo 16821725
+// Guilherme Cavalcanti de Santana 15456556
+
 /*
 Operações que alteram o estado do binário. 
 Gerencia as estruturas de dados relacionadas.
