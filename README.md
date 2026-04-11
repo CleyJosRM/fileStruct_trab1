@@ -1,44 +1,13 @@
 # trabalho1arquivos
-Trabalho 1 da disciplina de Organização de Arquivos, que consiste em implementar um pequeno sistema de banco de dados que manuseia arquivos que especificam a malha metroviária da Grande São Paulo.
 
-Nosso arquivo main.c deverá ler uma linha do usuário, que especifica a funcionalidade e os argumentos, e então executá-la. Eis a sintaxe dos comandos e o que eles fazem:
+O trabalho consiste dos seguintes arquivos .h e suas implementações em arquivos .c:
 
-1 arquivoEntrada.csv arquivoSaida.bin 
+func.h: define as funções referentes a cada uma das funcionalidades descritas na especificação do trabalho. Quando o usuário digita uma das funcionalidades, o arquivo main.c chama uma dessas funções definidas em func.h. Cada funcionalidade está implementada em seu próprio arquivo: func_1.c, func_2.c, etc.
 
-Interpreta o arquivo csv e escreve um arquivo binário com registro de cabeçalho e registros de dados conforme a especificação
+definicoes.h: contém diversas definições de macros, que são parâmetros fixos da especificação, como tamanho do registro de cabeçalho, tamanho do registro de dados, quantidade de campos inteiros em um registro de dados, valor de um byte lixo, etc. Também está definido um struct que representa um registro de dados. Ele ajuda a organizar a lógica e as variáveis de todo o código. Após essas definições, estão cabeçalhos de funções auxiliares, que realizam operações simples de processamento de dados e I/O. Essas funções estão implementadas em utils.c.
 
-2 arquivoEntrada.bin 
+datamanager.h: define diversas funções relacionadas a acesso ao arquivo, atualização, escrita e verificação de registros de dados. As implementações estão em datamanager.c.
 
-Imprime na tela todos os registros, com os campos ordenados da forma que estavam no csv
+arvore.h e tabelafuncoes.h: esses dois arquivos são usados pela árvore AVL que usamos para contabilizar a quantidade de estações diferentes e de pares (codEstacao, codProxEstacao). Como a árvore AVL guarda um item genérico, ela deve receber de funções capazes de ordenar, identificar e apagar esses itens genéricos. Os ponteiros para essas funções são reunidos em uma tabela de funções cujo endereço é armazenado pela árvore ao ser criada. A implementação da árvore está em arvore.c, enquanto as tabelas de funções são usadas em datamanager.c para criar as árvores e contabilizar os dados.
 
-3 arquivoEntrada.bin n 
-
-Realiza n buscas e imprime na tela os resultados das n buscas. Cada busca pode ter vários critérios de valor de campo, especificados nas n linhas abaixo
-
-4 arquivoEntrada.bin n 
-
-Realiza n buscas e remove os resultados
-
-5 arquivoEntrada.bin n 
-
-Insere no arquivo n resgistros, especificados na linha abaixo como listas de valores de todos os campos, segundo a ordem dos campos no csv
-
-6 arquivoEntrada.bin n 
-
-Faz n ciclos de busca&atualização, sendo que cada uma pede duas linhas de input: uma especifica os critérios de quais registros devem ser atualizados, seguindo o mesmo formato da funcionalidade 3, e a outra especifica quais campos devem mudar, junto com os novos valores
-
-
-## Funções comuns a várias funcionalidades
-
-
-Teoricamente iremos receber uma função que printa o binário de todos os registros na tela, de alguma forma que possamos ler.
-
-Também receberemos uma função que lê uma string delimitada por aspas duplas.
-
-Printar todos os campos (separados por espaço) de um registro, printando dados nulos como NULO, na ordem em que estão armazenados no csv, e não no binário
-
-
-Ler e *interpretar* (será que dá?) m critérios de busca (campos que são string são delimitados por aspas duplas):
-
-
-m nomeCampo valorCampo nomeCampo valorCampo ... nomeCampom valorCampom
+Para contar elementos distintos quaisquer, uma solução possível é colocá-los numa lista e ordenar essa lista, e então percorrer ela sequencialmente para contar quantas vezes ocorre mudança. Isso funciona pois elementos iguais ficam justapostos na lista ordenada. Entretanto, em vez de inserir todos os itens para depois ordenar, seria mais eficiente se pudéssemos inseri-los ordenadamente. O problema é que fazer isso em uma lista encadeada requer em média O(n^2) operações de passagens por nós (dereferenciar ponteiros). Por isso, optamos por árvore binária, que requer O(n log n) operações de passagens por nós para inserir n nós. Como tínhamos uma implementação de árvore AVL pronta, apenas reutilizamos fazendo leves modificações para comportar itens iguais na mesma árvore.
